@@ -1,23 +1,10 @@
-/* Blink without Delay
- 
- Turns on and off a light emitting diode(LED) connected to a digital  
- pin, without using the delay() function.  This means that other code
- can run at the same time without being interrupted by the LED code.
- 
- The circuit:
- * LED attached from pin 13 to ground.
- * Note: on most Arduinos, there is already an LED on the board
- that's attached to pin 13, so no hardware is needed for this example.
- 
- 
- created 2005
- by David A. Mellis
- modified 8 Feb 2010
- by Paul Stoffregen
+/* To control the speed and position of the OSA drill motor
+ created and Nov 2013
+ modified Mar 2014
+ by Nandkishor Dhawale
  
  This example code is in the public domain.
-
- 
+ code used for reference available at  
  http://www.arduino.cc/en/Tutorial/BlinkWithoutDelay
  */
 
@@ -26,16 +13,11 @@ String inputString = "";         // a string to hold incoming data
 //String stringOne, stringTwo, stringThree;
 boolean stringComplete = false;  // whether the string is complete
 
-  
-
-
-
 // constants won't change. Used here to 
 // set pin numbers:
 
 const int motCmdPin =  3;      // the number of the Motor pin
 int motPosPin = A0;    // select the input pin for the potentiometer
-
 
 // Variables will change:
 int motCmdState = LOW;             // ledState used to set the LED
@@ -50,7 +32,6 @@ double PosValue = 0.00;  // variable to store the value coming from the sensor
 int index = 0;
 double total = 0.00;
 
-
 void setup() {
   // set the digital pin as output:
    pinMode(motCmdPin, OUTPUT); 
@@ -58,14 +39,11 @@ void setup() {
    // reserve 200 bytes for the inputString:
   inputString.reserve(200);
    for (int thisReading = 0; thisReading < numReadings; thisReading++)
-   readings[thisReading] = 0;
- 
-   
+   readings[thisReading] = 0;   
 }
 
 void loop()
-{
-  
+{  
    // print the string when a newline arrives:
   if (stringComplete) {
              
@@ -94,8 +72,7 @@ void loop()
       motCmdState = LOW;
       digitalWrite(motCmdPin, motCmdState);
       delay(1);
-      
-      
+            
   total= total - readings[index];   
     // read from the sensor:  
   readings[index] = ((analogRead(motPosPin)/10)*0.3390)-1.0159; 
