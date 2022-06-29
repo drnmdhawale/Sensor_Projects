@@ -1,13 +1,13 @@
 /*
-  LiquidCrystal Library - Hello World
+  Uses LiquidCrystal Library - Hello World
  
  Demonstrates the use a 16x2 LCD display.  The LiquidCrystal
  library works with all LCD displays that are compatible with the 
  Hitachi HD44780 driver. There are many of them out there, and you
  can usually tell them by the 16-pin interface.
  
- This sketch prints "Hello World!" to the LCD
- and shows the time.
+ This sketch prints "CO2 Sensors output readings in V" to the LCD
+ and also dsiplays the time and if the reading is stable or unstable
  
   The circuit:
  * LCD RS pin to digital pin 12
@@ -20,6 +20,7 @@
  * 10K resistor:
  * ends to +5V and ground
  * wiper to LCD VO pin (pin 3)
+ * CO2 Sensors Analog o/p to A0 pin
  
  Library originally added 18 Apr 2008
  by David A. Mellis
@@ -29,6 +30,8 @@
  by Tom Igoe
  modified 22 Nov 2010
  by Tom Igoe
+ modified Dec 2013
+ by Nandkishor Dhawale
  
  This example code is in the public domain.
 
